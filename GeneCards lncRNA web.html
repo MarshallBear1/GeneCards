@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <title>lncRNA Subclasses</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f3f3;
+        }
+        h1 {
+            font-family: 'Lato', sans-serif;
+        }
+        button {
+    display: inline-block;
+    padding: .75rem .5rem;
+    width: 50%; /* Here is the change */
+    max-width: 350px; /* Optional: this can be set to ensure buttons don't become too wide on large screens */
+    border-radius: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    outline: none;
+    background-color: #4F46E5;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+        button:hover {
+            transform: scale(1.02);
+            background-color: #4338CA;
+        }
+        .container {
+            padding-top: 50px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Rest of your HTML content -->
+</body>
+</html>
+
+    <div class="container mx-auto px-4 py-5">
+        <div class="flex flex-col items-center mb-6">
+            <img src="https://geneanalytics.genecards.org/media/81632/gc.png" alt="Logo" class="mb-4 w-48" />
+            <h1 class="text-4xl font-bold">lncRNA Subclasses</h1>
+        </div>
+        <div id="categories" class="flex flex-col items-center gap-4">
+            <button onclick="showSubcategory('transcription_type')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Mode of Transcription</button>
+            <button onclick="showSubcategory('function')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Function</button>
+            <button onclick="showSubcategory('type')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Subtype</button>
+            <!-- Rest of your buttons -->
+
+        </div>
+        <div id="transcription_type" class="flex flex-col items-center gap-4 hidden subcategory">
+            <button onclick="toggleDefinition('intergenic_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Intergenic - I</button>
+            <p id="intergenic_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">Also known as lincRNAs...</p>
+            <button onclick="toggleDefinition('intronic_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Intronic - II</button>
+            <p id="intronic_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">These lncRNAs...</p>
+            <button onclick="toggleDefinition('antisense_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Antisense - III</button>
+            <p id="antisense_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">These lncRNAs...</p>
+            <button onclick="toggleDefinition('sense_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Sense - IV</button>
+            <p id="sense_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">These lncRNAs...</p>
+            <button onclick="toggleDefinition('sense_intronic_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Sense Intronic - V</button>
+            <p id="sense_intronic_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">These lncRNAs...</p>
+            <button onclick="toggleDefinition('sense_overlapping_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Sense Overlapping - VI</button>
+            <p id="sense_overlapping_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">These lncRNAs...</p>
+            <button onclick="toggleDefinition('bidirectional_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">Bidirectional - VII</button>
+            <p id="bidirectional_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">These lncRNAs...</p>
+            <button onclick="toggleDefinition('3_prime_UTR_overlapping_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">3' UTR overlapping - VIII</button>
+            <p id="3_prime_UTR_overlapping_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">These lncRNAs...</p>
+            <button onclick="toggleDefinition('5_prime_UTR_overlapping_definition')" class="bg-blue-500 rounded-lg p-2 text-white w-full">5' UTR overlapping - IX</button>
+            <p id="5_prime_UTR_overlapping_definition" class="block rounded-lg p-2 bg-white border border-gray-300 hidden w-full text-center">These lncRNAs...</p>
+            <button onclick="backToCategories()" class="bg-blue-500 rounded-lg p-2 text-white w-full mt-4">Back</button>
+        </div>
+        <div id="function" class="flex flex-col items-center gap-4 hidden subcategory">
+            <button onclick="backToCategories()" class="bg-blue-500 rounded-lg p-2 text-white w-full">Back</button>
+            <!-- Add the function subcategories here -->
+        </div>
+        <div id="type" class="flex flex-col items-center gap-4 hidden subcategory">
+            <button onclick="backToCategories()" class="bg-blue-500 rounded-lg p-2 text-white w-full">Back</button>
+            <!-- Add the type subcategories here -->
+        </div>
+    </div>
+    <script>
+      function showSubcategory(id) {
+        const categories = document.getElementById('categories');
+        categories.classList.add('hidden');
+        const subcategory = document.getElementById(id);
+        subcategory.classList.remove('hidden');
+      }
+      function backToCategories() {
+        const categories = document.getElementById('categories');
+        categories.classList.remove('hidden');
+        const subcategories = document.getElementsByClassName('subcategory');
+        for (let i = 0; i < subcategories.length; i++) {
+          subcategories[i].classList.add('hidden');
+        }
+      }
+      function toggleDefinition(id) {
+        const definitionElement = document.getElementById(id);
+        const isHidden = definitionElement.classList.contains('hidden');
+        const definitions = document.getElementsByClassName('definition');
+        for (let i = 0; i < definitions.length; i++) {
+          definitions[i].classList.add('hidden');
+        }
+        if (isHidden) {
+          definitionElement.classList.remove('hidden');
+        }
+      }
+    </script>
+</body>
+</html>
